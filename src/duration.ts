@@ -62,13 +62,22 @@ export class Duration {
         private readonly desc: string
     ) { }
 
-    public static fromMs(ms: Number): Duration {
+    public static fromMs(ms: number): Duration {
         let durations = Object.values(Duration).filter(v=>v.code && v.ms && v.desc);
         let candidates = durations.filter(c=>c.ms === ms);
         if (candidates.length === 1) {
             return candidates[0];
         } 
         throw new Error(`Couldn't find duration with number of ms : ${ms}`);
+    }
+
+    public static fromCode(code: string): Duration {
+        let durations: Duration[] = Object.values(Duration).filter(v=>v.code && v.ms && v.desc);
+        let candidates = durations.filter(c=>c.code === code);
+        if (candidates.length === 1) {
+            return candidates[0];
+        } 
+        throw new Error(`Couldn't find duration with code : ${code}`);
     }
 
     public getCode(): string {

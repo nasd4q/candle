@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { Duration } from "../../src/duration";
+import { Duration } from "../..";
 
 describe('Duration.fromMs', function() {
     it('returns Duration.H1 for value 3600*1000', ()=>{

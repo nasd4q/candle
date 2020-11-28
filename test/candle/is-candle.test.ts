@@ -1,6 +1,5 @@
 import { expect } from "chai";
-import { Candle } from '../../src/candle';
-import { Duration } from "../../src/duration";
+import { Candle, Duration } from '../..';
 
 describe('Candle.isCandle', function() {
     it('returns true for an object with all the fields', ()=>{
