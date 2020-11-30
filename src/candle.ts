@@ -1,4 +1,3 @@
-import { lutimesSync } from "fs";
 import { Duration } from "./duration";
 
 export class Candle {

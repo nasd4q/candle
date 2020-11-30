@@ -8,7 +8,7 @@
     "scripts": {
         "test": "mocha \"./test/**/*.test.ts\"",
         "compile": "tsc",
-        "recompile": "rm -r ./dist && npm run compile",
+        "recompile": "rm -rf ./dist && npm run compile",
         "coverage": "nyc mocha \"./test/**/*.test.ts\""
     },
     "author": "",
