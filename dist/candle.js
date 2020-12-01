@@ -2,6 +2,7 @@
 exports.__esModule = true;
 exports.Candle = void 0;
 var duration_1 = require("./duration");
+var util_1 = require("./util");
 var Candle = /** @class */ (function () {
     function Candle(open, high, low, close, begin, duration, volume) {
         this.open = open;
@@ -43,7 +44,15 @@ var Candle = /** @class */ (function () {
         if (!candle1 || !candle2) {
             throw new Error("One of candles passed is null or undefined. (At least falsy)");
         }
-        return Object.keys(candle1).every(function (key) { return candle1[key] === candle2[key]; });
+        return Object.keys(candle1).every(function (key) {
+            if (candle1[key] === candle2[key]) {
+                return true;
+            }
+            if (typeof candle1[key] === 'number' && typeof candle2[key] === 'number') {
+                return util_1.nearlyEquals(candle1[key], candle2[key]);
+            }
+            return candle1[key] === candle2[key];
+        });
     };
     /**
      * Intended for use as first argument to moogoose.Schema() invocation...
