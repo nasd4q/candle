@@ -1,4 +1,5 @@
 import { Duration } from "./duration";
+import { nearlyEquals } from "./util";
 
 export class Candle {
     public constructor(
@@ -53,7 +54,15 @@ export class Candle {
             throw new Error("One of candles passed is null or undefined. (At least falsy)");
         }
 
-        return Object.keys(candle1).every(key => candle1[key] === candle2[key]);
+        return Object.keys(candle1).every(key => {
+            if (candle1[key] === candle2[key]) {
+                return true;
+            }
+            if (typeof candle1[key] === 'number' && typeof candle2[key] === 'number') {
+                return nearlyEquals(candle1[key], candle2[key]);
+            }
+            return candle1[key] === candle2[key];
+        });
     }
 
     /**
