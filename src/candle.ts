@@ -79,7 +79,7 @@ export class Candle {
         let c = this.getOneRandomCandle();
         let keys = Object.keys(c);
         return keys.every(k => {
-            return candidate[k] && (typeof c[k] === typeof candidate[k]);
+            return typeof c[k] === typeof candidate[k];
         });
     }
 

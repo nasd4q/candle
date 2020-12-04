@@ -10,7 +10,7 @@ describe('Candle.isCandle', function() {
             close:13.20,
             begin: new Date().getTime(),
             duration: 1000 * 60 * 60 * 24,
-            volume : 100347
+            volume : 0
         }
         expect(Candle.isCandle(candidate)).to.equal(true);
     });
@@ -24,6 +24,18 @@ describe('Candle.isCandle', function() {
             close:13.20,
             begin: new Date().getTime(),
             duration: Duration.D1,
+            volume : 100347
+        }
+        expect(Candle.isCandle(candidate)).to.equal(false);
+    });
+
+    it('returns false for an object missing one field', ()=>{
+        let candidate = {
+            open: 12.34,
+            high: 13.78,
+            close:13.20,
+            begin: new Date().getTime(),
+            duration: 1000 * 60 * 60 * 24,
             volume : 100347
         }
         expect(Candle.isCandle(candidate)).to.equal(false);

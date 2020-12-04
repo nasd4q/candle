@@ -4,3 +4,7 @@ dist/
 .nyc_output/
 coverage/
 
+# ignore outputs and byproducts of when packing and releasing
+package/
+candle-*.tgz
+
