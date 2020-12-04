@@ -11,7 +11,8 @@
         "test": "mocha \"./test/**/*.test.ts\"",
         "compile": "tsc",
         "recompile": "rm -rf ./dist && npm run compile",
-        "coverage": "nyc mocha \"./test/**/*.test.ts\""
+        "coverage": "nyc mocha \"./test/**/*.test.ts\"",
+        "manual-prepack": "npm i && npm run recompile"
     },
     "author": "",
     "license": "ISC",

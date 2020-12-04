@@ -65,7 +65,7 @@ var Candle = /** @class */ (function () {
         var c = this.getOneRandomCandle();
         var keys = Object.keys(c);
         return keys.every(function (k) {
-            return candidate[k] && (typeof c[k] === typeof candidate[k]);
+            return typeof c[k] === typeof candidate[k];
         });
     };
     Candle.getOneRandomCandle = function () {
